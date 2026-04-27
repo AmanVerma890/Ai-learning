@@ -12,7 +12,7 @@ const httpServer = http.createServer(app);
   try {
     logger.info('Connecting to DB...');
     await db.sequelize.authenticate();
-    await db.sequelize.sync({ alter: true });
+
     logger.info('DB connected successfully.');
 
     httpServer.listen(port, () => {
