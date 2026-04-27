@@ -1,5 +1,5 @@
 import http from 'http';
-import { config } from './configs/env.config.js';
+import { config } from './config/env.config.js';
 import app from './app.js';
 import db from './models/index.js';
 import logger from './utils/logger.util.js';
