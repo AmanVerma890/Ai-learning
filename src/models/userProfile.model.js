@@ -10,6 +10,26 @@ const defineUserProfileModel = (sequelize, DataTypes) => {
         defaultValue: () => uuidv7(),
         primaryKey: true,
       },
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      phone: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      timeZone: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      avatar: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
     },
     {
       tableName: 'UserProfiles',
