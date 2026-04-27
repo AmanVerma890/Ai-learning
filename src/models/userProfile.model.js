@@ -15,30 +15,30 @@ const defineUserProfileModel = (sequelize, DataTypes) => {
         allowNull: false,
         references: {
           models: 'Users',
-          key: 'id'
+          key: 'id',
         },
-        onUpdate: 'CASCADE'
+        onUpdate: 'CASCADE',
       },
       firstName: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       lastName: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       phone: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       timeZone: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
       },
       avatar: {
         type: DataTypes.STRING,
-        allowNull: false
-      }
+        allowNull: false,
+      },
     },
     {
       tableName: 'UserProfiles',
@@ -48,8 +48,8 @@ const defineUserProfileModel = (sequelize, DataTypes) => {
   );
 
   UserProfile.associate = (models) => {
-    UserProfile.belongsTo(models.User, { as: 'user', foreignKey: 'userId' })
-  }
+    UserProfile.belongsTo(models.User, { as: 'user', foreignKey: 'userId' });
+  };
 
   return UserProfile;
 };
