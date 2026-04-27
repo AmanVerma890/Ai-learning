@@ -1,10 +1,7 @@
 export const validate = (schemaOrFactory, property = 'body') => {
   return (req, res, next) => {
     // If factory function, call it with req to get the schema dynamically
-    const schema =
-      typeof schemaOrFactory === 'function'
-        ? schemaOrFactory(req)
-        : schemaOrFactory;
+    const schema = typeof schemaOrFactory === 'function' ? schemaOrFactory(req) : schemaOrFactory;
 
     const { error } = schema.validate(req[property], {
       abortEarly: true,

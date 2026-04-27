@@ -1,5 +1,6 @@
 import db from '../models/index.js';
 import logger from '../utils/logger.util.js';
+import { generateTokens } from '../services/auth.service.js';
 const { User } = db;
 
 export const signUp = async (req, res) => {
@@ -16,7 +17,7 @@ export const signUp = async (req, res) => {
         success: false,
         message: 'Email is already exists.',
       });
-    }
+    };
 
     return res.status(200).json({
       success: true,

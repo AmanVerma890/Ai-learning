@@ -8,7 +8,7 @@ export const signUpSchema = Joi.object({
     .messages({
       'string.email': 'Email must be a valid email address',
       'string.empty': 'Email is required',
-      'any.required': 'Email is required'
+      'any.required': 'Email is required',
     }),
 
   password: Joi.string().min(6).max(30).required().messages({
@@ -17,4 +17,4 @@ export const signUpSchema = Joi.object({
     'string.empty': 'Password is required',
     'any.required': 'Password is required',
   }),
-})
+});
