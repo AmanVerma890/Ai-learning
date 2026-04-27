@@ -44,6 +44,10 @@ const defineUserModel = (sequelize, DataTypes) => {
     },
   );
 
+  User.associate = (models) => {
+    User.hasOne(models.UserProfile, { as: 'profile', foreignKey: 'userId' })
+  };
+
   return User;
 };
 

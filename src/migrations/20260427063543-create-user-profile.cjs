@@ -1,3 +1,5 @@
+// migrations/20260427063543-create-user-profile.cjs
+
 'use strict';
 
 module.exports = {
@@ -13,43 +15,44 @@ module.exports = {
         allowNull: false,
         references: {
           model: 'Users',
-          key: 'id',
+          key: 'id'
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       },
       first_name: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       last_name: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       phone: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       time_zone: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       avatar: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
-      },
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      }
     });
   },
 
   async down(queryInterface) {
     await queryInterface.dropTable('UserProfiles');
-  },
+  }
 };

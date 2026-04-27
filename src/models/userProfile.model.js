@@ -10,6 +10,15 @@ const defineUserProfileModel = (sequelize, DataTypes) => {
         defaultValue: () => uuidv7(),
         primaryKey: true,
       },
+      userId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          models: 'Users',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE'
+      },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false
@@ -37,6 +46,10 @@ const defineUserProfileModel = (sequelize, DataTypes) => {
       underscored: true,
     },
   );
+
+  UserProfile.associate = (models) => {
+    UserProfile.belongsTo(models.User, { as: 'user', foreignKey: 'userId' })
+  }
 
   return UserProfile;
 };
